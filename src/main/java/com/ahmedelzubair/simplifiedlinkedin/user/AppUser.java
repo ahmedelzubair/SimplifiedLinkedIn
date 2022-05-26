@@ -19,13 +19,12 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID", strategy = "org.hibernate.id.UUIDGenerator",
             parameters = {@Parameter(name = "uuid_gen_strategy_class",
                     value = "org.hibernate.id.uuid.CustomVersionOneStrategy")})
-    @Column(name = "uuid", updatable = false, nullable = false)
+    @Column(name = "uuid", updatable = false, nullable = false, unique = true)
     private UUID linkedInId;
     @Column(name = "first_name", nullable = false)
     private String firstName;
