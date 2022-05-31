@@ -1,59 +1,59 @@
 package com.ahmedelzubair.simplifiedlinkedin.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.ahmedelzubair.simplifiedlinkedin.address.Address;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity(name = "users")
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID", strategy = "org.hibernate.id.UUIDGenerator",
-            parameters = {@Parameter(name = "uuid_gen_strategy_class",
-                    value = "org.hibernate.id.uuid.CustomVersionOneStrategy")})
-    @Column(name = "uuid", updatable = false, nullable = false, unique = true)
-    private UUID linkedInId;
-    @Column(name = "first_name", nullable = false)
+    @GenericGenerator(name = "linkedin_uuid", strategy = "uuid2")
+    private UUID linkedInUuid;
     private String firstName;
-    @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "email", nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
-    @Column(name = "password")
     private String password;
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String username;
-    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "profile_image_url")
     private String profileImageUrl;
-    @Column(name = "cover_image_url")
     private String coverImageUrl;
-    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-    @Column(name = "status")
     private Long status;
-    @Column(name = "addressId")
-    private Long addressId;
-    @Column(name = "about")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "id")
+    private Address addressId;
     private String about;
-    @Column(name = "created_at")
     private LocalDate createdAt;
-    @Column(name = "updated_at")
     private LocalDate updatedAt;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        AppUser appUser = (AppUser) o;
+        return id != null && Objects.equals(id, appUser.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
