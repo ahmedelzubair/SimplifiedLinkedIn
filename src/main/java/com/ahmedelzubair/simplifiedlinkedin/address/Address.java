@@ -1,6 +1,5 @@
 package com.ahmedelzubair.simplifiedlinkedin.address;
 
-import com.ahmedelzubair.simplifiedlinkedin.user.AppUser;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,9 +19,6 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-
-    @OneToOne(mappedBy = "addressId")
-    private AppUser user;
     private String street;
     @ManyToOne
     @JoinColumn(name = "city_id")

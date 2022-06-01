@@ -7,7 +7,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity(name = "users")
@@ -37,9 +39,11 @@ public class AppUser {
     private String coverImageUrl;
     private LocalDate dateOfBirth;
     private Long status;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "id")
-    private Address addressId;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id")
+    @JoinTable(name = "user_address",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    private Set<Address> addresses = new HashSet<>();
     private String about;
     private LocalDate createdAt;
     private LocalDate updatedAt;
