@@ -1,4 +1,4 @@
-package com.ahmedelzubair.simplifiedlinkedin.address;
+package com.ahmedelzubair.simplifiedlinkedin.address.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

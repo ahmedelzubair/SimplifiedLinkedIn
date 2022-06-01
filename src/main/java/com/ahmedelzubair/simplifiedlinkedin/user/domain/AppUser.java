@@ -1,6 +1,6 @@
-package com.ahmedelzubair.simplifiedlinkedin.user;
+package com.ahmedelzubair.simplifiedlinkedin.user.domain;
 
-import com.ahmedelzubair.simplifiedlinkedin.address.Address;
+import com.ahmedelzubair.simplifiedlinkedin.address.domain.Address;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
