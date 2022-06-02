@@ -28,7 +28,7 @@ public class UserConnection {
 
          so we will use a json array to store the list of user connections.
          and we will deal with manipulating the json array in the application code.
-         like getting its count, getting its elements, etc.
+         like getting its count, getting ids for fetching its elements, etc.
 
          (( --no one size fits all-- )).
     */
