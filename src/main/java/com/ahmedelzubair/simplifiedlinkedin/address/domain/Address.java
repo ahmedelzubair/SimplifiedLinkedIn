@@ -1,11 +1,13 @@
 package com.ahmedelzubair.simplifiedlinkedin.address.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
-@Table(name = "address")
+@Entity(name = "address")
 @Getter
 @Setter
 @ToString
@@ -13,12 +15,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Address {
+public class Address extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
     private String street;
     @ManyToOne
     @JoinColumn(name = "city_id")

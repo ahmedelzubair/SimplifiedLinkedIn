@@ -1,15 +1,12 @@
 package com.ahmedelzubair.simplifiedlinkedin.address.domain;
 
-import javax.persistence.*;
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 
-@Entity
-@Table(name = "continents")
-public class Continent {
+import javax.persistence.Entity;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+@Entity(name = "continents")
+public class Continent extends BaseEntity {
+
     private String name;
 
 }

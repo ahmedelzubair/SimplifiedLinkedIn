@@ -1,12 +1,14 @@
 package com.ahmedelzubair.simplifiedlinkedin.contact_info.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import com.ahmedelzubair.simplifiedlinkedin.user.domain.AppUser;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
-@Table(name = "user_contact_info")
+@Entity(name = "user_contact_info")
 @Getter
 @Setter
 @ToString
@@ -14,12 +16,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserContactInfo {
+public class UserContactInfo extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
     private String phone;
     private String email;
     private String websiteUrl;

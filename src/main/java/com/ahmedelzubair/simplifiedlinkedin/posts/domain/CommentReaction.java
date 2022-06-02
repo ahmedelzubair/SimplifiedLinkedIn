@@ -1,9 +1,12 @@
 package com.ahmedelzubair.simplifiedlinkedin.posts.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import com.ahmedelzubair.simplifiedlinkedin.user.domain.AppUser;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Entity(name = "comments_reactions")
@@ -14,12 +17,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CommentReaction {
+public class CommentReaction extends BaseEntity {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @ManyToOne
     @JoinColumn(name = "comment_id")
     private PostComment post;

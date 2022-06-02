@@ -1,15 +1,15 @@
 package com.ahmedelzubair.simplifiedlinkedin.address.domain;
 
-import javax.persistence.*;
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 
-@Entity
-@Table(name = "cities")
-public class City {
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+@Entity(name = "cities")
+public class City extends BaseEntity {
+
+
     private String name;
     private String code;
 

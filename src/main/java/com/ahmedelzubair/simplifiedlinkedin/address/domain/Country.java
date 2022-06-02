@@ -1,22 +1,20 @@
 package com.ahmedelzubair.simplifiedlinkedin.address.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Builder
 @AllArgsConstructor
-@Entity
-@Table(name = "countries")
+@Entity(name = "countries")
 @NoArgsConstructor
-public class Country {
+public class Country extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
     private String name;
     private String code;
     private String currency;

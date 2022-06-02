@@ -1,5 +1,6 @@
 package com.ahmedelzubair.simplifiedlinkedin.posts.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import com.ahmedelzubair.simplifiedlinkedin.user.domain.AppUser;
 import lombok.*;
 
@@ -14,12 +15,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Post {
+public class Post extends BaseEntity {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String content;
     private String mediaUrls;
     private Long impressions;

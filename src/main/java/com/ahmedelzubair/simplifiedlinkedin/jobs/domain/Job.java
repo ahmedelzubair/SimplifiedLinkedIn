@@ -15,10 +15,7 @@ import java.time.LocalDate;
 @Builder
 public class Job {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private String title;
     private String description;
     @Enumerated(EnumType.STRING)

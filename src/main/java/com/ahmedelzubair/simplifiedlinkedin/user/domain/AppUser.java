@@ -1,6 +1,7 @@
 package com.ahmedelzubair.simplifiedlinkedin.user.domain;
 
 import com.ahmedelzubair.simplifiedlinkedin.address.domain.Address;
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,11 +21,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AppUser {
+public class AppUser extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @GenericGenerator(name = "linkedin_uuid", strategy = "uuid2")
     private UUID linkedInUuid;
     private String firstName;
@@ -54,7 +52,7 @@ public class AppUser {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         AppUser appUser = (AppUser) o;
-        return id != null && Objects.equals(id, appUser.id);
+        return getId() != null && Objects.equals(getId(), appUser.getId());
     }
 
     @Override

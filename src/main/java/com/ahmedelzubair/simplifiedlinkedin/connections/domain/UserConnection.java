@@ -1,8 +1,11 @@
 package com.ahmedelzubair.simplifiedlinkedin.connections.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_connections")
@@ -13,12 +16,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserConnection {
+public class UserConnection extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
     @Column(name = "user_connections")
     private String userConnections;
     /*
