@@ -1,7 +1,7 @@
-package com.ahmedelzubair.simplifiedlinkedin.jobs.domain.mapper;
+package com.ahmedelzubair.simplifiedlinkedin.companies.domain.mapper;
 
-import com.ahmedelzubair.simplifiedlinkedin.jobs.domain.Company;
-import com.ahmedelzubair.simplifiedlinkedin.jobs.domain.dto.CompanyDTO;
+import com.ahmedelzubair.simplifiedlinkedin.companies.domain.Company;
+import com.ahmedelzubair.simplifiedlinkedin.companies.domain.dto.CompanyDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

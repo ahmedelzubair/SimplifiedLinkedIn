@@ -1,4 +1,4 @@
-package com.ahmedelzubair.simplifiedlinkedin.jobs.domain;
+package com.ahmedelzubair.simplifiedlinkedin.companies.domain;
 
 import com.ahmedelzubair.simplifiedlinkedin.address.domain.Address;
 import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
