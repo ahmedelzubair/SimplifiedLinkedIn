@@ -1,7 +1,7 @@
 package com.ahmedelzubair.simplifiedlinkedin.user.domain.mapper;
 
 import com.ahmedelzubair.simplifiedlinkedin.user.domain.AppUser;
-import com.ahmedelzubair.simplifiedlinkedin.user.domain.dto.UserDTO;
+import com.ahmedelzubair.simplifiedlinkedin.user.domain.dto.AppUserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -10,8 +10,8 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    UserDTO mapToDTO(AppUser user);
+    AppUserDTO mapToDTO(AppUser user);
 
-    AppUser mapToEntity(UserDTO userDTO);
+    AppUser mapToEntity(AppUserDTO appUserDTO);
 
 }
