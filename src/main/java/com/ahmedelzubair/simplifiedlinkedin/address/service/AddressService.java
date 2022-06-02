@@ -4,7 +4,6 @@ import com.ahmedelzubair.simplifiedlinkedin.address.domain.dto.AddressDTO;
 
 import java.util.Optional;
 
-// for closing GitHub issue
 public interface AddressService {
 
     void createAddress(AddressDTO addressDTO);
@@ -14,5 +13,6 @@ public interface AddressService {
     void deleteAddress(AddressDTO addressDTO);
 
     Optional<AddressDTO> findAddressById(Long addressId);
+
 
 }
