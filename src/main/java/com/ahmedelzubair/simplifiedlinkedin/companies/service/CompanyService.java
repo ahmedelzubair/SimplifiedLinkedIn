@@ -4,13 +4,13 @@ import com.ahmedelzubair.simplifiedlinkedin.companies.domain.dto.CompanyDTO;
 
 public interface CompanyService {
 
-    void createJob(CompanyDTO jobDTO);
+    void createCompany(CompanyDTO companyDTO);
 
-    void updateJob(CompanyDTO jobDTO);
+    void updateCompany(CompanyDTO companyDTO);
 
-    void deleteJob(CompanyDTO jobDTO);
+    void deleteCompany(CompanyDTO companyDTO);
 
-    CompanyDTO getJob(String jobId);
+    CompanyDTO getCompany(String companyId);
 
 
 }
