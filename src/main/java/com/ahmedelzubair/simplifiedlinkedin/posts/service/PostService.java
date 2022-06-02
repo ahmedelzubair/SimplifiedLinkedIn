@@ -5,16 +5,16 @@ import com.ahmedelzubair.simplifiedlinkedin.posts.domain.Post;
 import java.util.Set;
 
 public interface PostService {
-    Post createPost(Post post);
+    void createPost(Post post);
 
-    Post getPost(String postId);
+    Post getPost(Long postId);
 
     Post updatePost(Post post);
 
-    void deletePost(String postId);
+    void deletePost(Long postId);
 
-    Set<Post> getUserPosts(String userId);
+    Set<Post> getUserPosts(Long userId);
 
-    Set<Post> getUserTimeline(String userId);
+    Set<Post> getUserTimeline(Long userId);
 
 }

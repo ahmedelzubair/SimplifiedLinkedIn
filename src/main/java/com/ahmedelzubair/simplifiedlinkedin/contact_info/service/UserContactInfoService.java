@@ -2,14 +2,16 @@ package com.ahmedelzubair.simplifiedlinkedin.contact_info.service;
 
 import com.ahmedelzubair.simplifiedlinkedin.contact_info.domain.dto.UserContactInfoDTO;
 
+import java.util.Optional;
+
 public interface UserContactInfoService {
 
     void createUserContactInfo(UserContactInfoDTO userContactInfoDTO);
 
-    void updateUserContactInfo(UserContactInfoDTO userContactInfoDTO);
+    UserContactInfoDTO updateUserContactInfo(UserContactInfoDTO userContactInfoDTO);
 
     void deleteUserContactInfo(UserContactInfoDTO userContactInfoDTO);
 
-    UserContactInfoDTO findUserContactInfoByUserId(String userId);
+    Optional<UserContactInfoDTO> findUserContactInfoByUserId(Long userId);
 
 }

@@ -2,15 +2,17 @@ package com.ahmedelzubair.simplifiedlinkedin.companies.service;
 
 import com.ahmedelzubair.simplifiedlinkedin.companies.domain.dto.CompanyDTO;
 
+import java.util.Optional;
+
 public interface CompanyService {
 
     void createCompany(CompanyDTO companyDTO);
 
-    void updateCompany(CompanyDTO companyDTO);
+    CompanyDTO updateCompany(CompanyDTO companyDTO);
 
     void deleteCompany(CompanyDTO companyDTO);
 
-    CompanyDTO getCompany(String companyId);
+    Optional<CompanyDTO> findCompanyById(Long companyId);
 
 
 }
