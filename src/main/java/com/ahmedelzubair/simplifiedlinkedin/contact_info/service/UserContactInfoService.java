@@ -10,6 +10,6 @@ public interface UserContactInfoService {
 
     void deleteUserContactInfo(UserContactInfoDTO userContactInfoDTO);
 
-    UserContactInfoDTO getUserContactInfo(String userContactInfoId);
+    UserContactInfoDTO findUserContactInfoByUserId(String userId);
 
 }
