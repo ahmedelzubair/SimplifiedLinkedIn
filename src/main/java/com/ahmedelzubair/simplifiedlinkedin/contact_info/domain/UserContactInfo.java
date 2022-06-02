@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

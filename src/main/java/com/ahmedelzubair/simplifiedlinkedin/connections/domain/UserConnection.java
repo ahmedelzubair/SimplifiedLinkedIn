@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

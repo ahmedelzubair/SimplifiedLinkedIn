@@ -1,5 +1,6 @@
 package com.ahmedelzubair.simplifiedlinkedin.jobs.domain;
 
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,11 +10,11 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Job {
+public class Job extends BaseEntity {
 
 
     private String title;

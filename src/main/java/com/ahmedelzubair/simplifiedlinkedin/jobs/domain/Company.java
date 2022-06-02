@@ -1,6 +1,7 @@
 package com.ahmedelzubair.simplifiedlinkedin.jobs.domain;
 
 import com.ahmedelzubair.simplifiedlinkedin.address.domain.Address;
+import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,15 +15,12 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Company {
+public class Company extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @GenericGenerator(name = "linkedin_uuid", strategy = "uuid2")
     private UUID linkedInUuid;
     private String name;

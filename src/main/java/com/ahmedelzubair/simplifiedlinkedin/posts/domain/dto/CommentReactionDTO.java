@@ -1,6 +1,7 @@
-package com.ahmedelzubair.simplifiedlinkedin.posts.domain;
+package com.ahmedelzubair.simplifiedlinkedin.posts.domain.dto;
 
 import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
+import com.ahmedelzubair.simplifiedlinkedin.posts.domain.PostComment;
 import com.ahmedelzubair.simplifiedlinkedin.user.domain.AppUser;
 import lombok.*;
 
@@ -17,7 +18,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CommentReaction extends BaseEntity {
+public class CommentReactionDTO extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "comment_id")
