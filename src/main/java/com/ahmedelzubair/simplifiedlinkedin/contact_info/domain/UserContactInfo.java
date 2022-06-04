@@ -1,7 +1,7 @@
 package com.ahmedelzubair.simplifiedlinkedin.contact_info.domain;
 
 import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
-import com.ahmedelzubair.simplifiedlinkedin.user.domain.AppUser;
+import com.ahmedelzubair.simplifiedlinkedin.users.domain.AppUser;
 import lombok.*;
 
 import javax.persistence.Entity;
