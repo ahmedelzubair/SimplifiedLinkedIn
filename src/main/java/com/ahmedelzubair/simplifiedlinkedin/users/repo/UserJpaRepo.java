@@ -5,4 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserJpaRepo extends JpaRepository<AppUser, Long> {
     AppUser findByEmail(String email);
+
+    AppUser findByUsername(String username);
+
+    AppUser findByUsernameOrEmail(String username, String email);
+
+
 }

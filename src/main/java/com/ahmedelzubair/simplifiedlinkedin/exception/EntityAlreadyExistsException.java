@@ -3,10 +3,10 @@ package com.ahmedelzubair.simplifiedlinkedin.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-public class EntityNotSavedException extends RuntimeException {
+@ResponseStatus(value = HttpStatus.CONFLICT)
+public class EntityAlreadyExistsException extends RuntimeException {
 
-    public EntityNotSavedException(String message) {
+    public EntityAlreadyExistsException(String message) {
         super(message);
     }
 }
