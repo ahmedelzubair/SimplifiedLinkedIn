@@ -1,10 +1,13 @@
 package com.ahmedelzubair.simplifiedlinkedin.users.service;
 
+import com.ahmedelzubair.simplifiedlinkedin.exception.EntityNotSavedException;
 import com.ahmedelzubair.simplifiedlinkedin.users.domain.AppUser;
 import com.ahmedelzubair.simplifiedlinkedin.users.domain.dto.AppUserDTO;
 import com.ahmedelzubair.simplifiedlinkedin.users.domain.mapper.UserMapper;
 import com.ahmedelzubair.simplifiedlinkedin.users.repo.UserJpaRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -19,31 +22,64 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void createUser(AppUserDTO appUserDTO) {
+    public AppUserDTO createUser(AppUserDTO appUserDTO) {
 
         AppUser user = userMapper.mapToEntity(appUserDTO);
         userRepository.save(user);
 
+        AppUserDTO savedUser = userMapper.mapToDTO(user);
+        if (savedUser == null) {
+            throw new EntityNotSavedException("User not saved");
+        }
+        return savedUser;
     }
 
     @Override
-    public void updateUser(AppUserDTO appUser) {
+    public AppUserDTO updateUser(AppUserDTO appUser) {
 
+        AppUser user = userMapper.mapToEntity(appUser);
+
+        Optional<AppUser> userOptional = userRepository.findById(user.getId());
+
+        if (userOptional.isEmpty()) {
+            throw new EntityNotSavedException("Requested user not found");
+        }
+
+        AppUser updatedUser = userRepository.save(user);
+
+        return userMapper.mapToDTO(updatedUser);
     }
 
     @Override
     public void deleteUser(AppUserDTO appUser) {
 
+        AppUser user = userMapper.mapToEntity(appUser);
+
+        Optional<AppUser> userOptional = userRepository.findById(user.getId());
+
+        if (userOptional.isEmpty()) {
+            throw new EntityNotSavedException("Requested user not found");
+        }
+
+        userRepository.delete(user);
     }
 
     @Override
     public AppUserDTO findUserByEmail(String email) {
-        return null;
+        AppUser user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new EntityNotSavedException("User not found");
+        }
+        return userMapper.mapToDTO(user);
     }
 
     @Override
     public AppUserDTO findUserById(Long id) {
-        return null;
+        Optional<AppUser> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()) {
+            throw new EntityNotSavedException("User not found");
+        }
+        return userMapper.mapToDTO(userOptional.get());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.ahmedelzubair.simplifiedlinkedin.common;
+package com.ahmedelzubair.simplifiedlinkedin.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

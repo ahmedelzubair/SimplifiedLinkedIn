@@ -4,9 +4,9 @@ import com.ahmedelzubair.simplifiedlinkedin.users.domain.dto.AppUserDTO;
 
 public interface UserService {
 
-    void createUser(AppUserDTO appUserDTO);
+    AppUserDTO createUser(AppUserDTO appUserDTO);
 
-    void updateUser(AppUserDTO appUser);
+    AppUserDTO updateUser(AppUserDTO appUser);
 
     void deleteUser(AppUserDTO appUser);
 
