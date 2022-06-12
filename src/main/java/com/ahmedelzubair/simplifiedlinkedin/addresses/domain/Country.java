@@ -1,9 +1,7 @@
 package com.ahmedelzubair.simplifiedlinkedin.addresses.domain;
 
 import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -13,6 +11,8 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Entity(name = "countries")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Country extends BaseEntity {
 
     private String name;

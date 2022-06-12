@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface CountryService {
 
-    void createCountry(CountryDTO country);
+    CountryDTO createCountry(CountryDTO country);
 
     CountryDTO updateCountry(CountryDTO country);
 
@@ -15,4 +15,5 @@ public interface CountryService {
     Optional<CountryDTO> findCountryById(Long countryId);
 
 
+    Optional<CountryDTO> findCountryByName(String countryName);
 }
