@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface CityService {
 
-    void createCity(CityDTO city);
+    CityDTO createCity(CityDTO city);
 
     CityDTO updateCity(CityDTO city);
 
@@ -15,4 +15,5 @@ public interface CityService {
     Optional<CityDTO> findCityById(Long cityId);
 
 
+    Optional<CityDTO> findCityByName(String cityName);
 }

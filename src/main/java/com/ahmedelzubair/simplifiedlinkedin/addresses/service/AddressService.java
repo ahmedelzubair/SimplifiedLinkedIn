@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface AddressService {
 
-    void createAddress(AddressDTO addressDTO);
+    AddressDTO createAddress(AddressDTO addressDTO);
 
     AddressDTO updateAddress(AddressDTO addressDTO);
 
