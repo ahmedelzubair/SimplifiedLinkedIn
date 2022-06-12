@@ -14,5 +14,4 @@ public interface AddressService {
 
     Optional<AddressDTO> findAddressById(Long addressId);
 
-
 }
