@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface UserConnectionsService {
 
-    void createUserConnection(UserConnectionDTO userConnectionDTO);
+    UserConnectionDTO createUserConnection(UserConnectionDTO userConnectionDTO);
 
     UserConnectionDTO updateUserConnection(UserConnectionDTO userConnectionDTO);
 
