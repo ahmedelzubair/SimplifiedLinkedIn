@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface CompanyService {
 
-    void createCompany(CompanyDTO companyDTO);
+    CompanyDTO createCompany(CompanyDTO companyDTO);
 
     CompanyDTO updateCompany(CompanyDTO companyDTO);
 
@@ -15,4 +15,5 @@ public interface CompanyService {
     Optional<CompanyDTO> findCompanyById(Long companyId);
 
 
+    Optional<CompanyDTO> findCompanyByName(String companyName);
 }
