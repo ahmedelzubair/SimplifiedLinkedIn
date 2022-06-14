@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface UserContactInfoService {
 
-    void createUserContactInfo(UserContactInfoDTO userContactInfoDTO);
+    UserContactInfoDTO createUserContactInfo(UserContactInfoDTO userContactInfoDTO);
 
     UserContactInfoDTO updateUserContactInfo(UserContactInfoDTO userContactInfoDTO);
 
