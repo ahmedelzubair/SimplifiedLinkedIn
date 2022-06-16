@@ -1,20 +1,21 @@
 package com.ahmedelzubair.simplifiedlinkedin.posts.service;
 
-import com.ahmedelzubair.simplifiedlinkedin.posts.domain.Post;
+import com.ahmedelzubair.simplifiedlinkedin.posts.domain.dto.PostDTO;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface PostService {
-    void createPost(Post post);
+    PostDTO createPost(PostDTO post);
 
-    Post getPost(Long postId);
+    Optional<PostDTO> findPostById(Long postId);
 
-    Post updatePost(Post post);
+    PostDTO updatePost(PostDTO post);
 
     void deletePost(Long postId);
 
-    Set<Post> getUserPosts(Long userId);
+    Set<PostDTO> getUserPosts(Long userId);
 
-    Set<Post> getUserTimeline(Long userId);
+    Set<PostDTO> getUserTimeline(Long userId);
 
 }

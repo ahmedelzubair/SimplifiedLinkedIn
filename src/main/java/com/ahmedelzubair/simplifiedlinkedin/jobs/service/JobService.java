@@ -8,7 +8,7 @@ import java.util.Set;
 //
 public interface JobService {
 
-    void createJob(JobDTO jobDTO);
+    JobDTO createJob(JobDTO jobDTO);
 
     JobDTO updateJob(JobDTO jobDTO);
 
@@ -16,9 +16,9 @@ public interface JobService {
 
     Optional<JobDTO> findJobById(Long jobId);
 
-    Optional<JobDTO> findJobByName(String jobName);
+    Set<JobDTO> findJobsByTitle(String jobName);
 
-    Set<JobDTO> findJobsByCompanyName(String companyName);
+    Set<JobDTO> findJobsByCompanyId(Long companyName);
 
 
 }

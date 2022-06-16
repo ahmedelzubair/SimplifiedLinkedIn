@@ -1,6 +1,7 @@
 package com.ahmedelzubair.simplifiedlinkedin.jobs.domain;
 
 import com.ahmedelzubair.simplifiedlinkedin.common.BaseEntity;
+import com.ahmedelzubair.simplifiedlinkedin.companies.domain.Company;
 import lombok.*;
 
 import javax.persistence.*;
