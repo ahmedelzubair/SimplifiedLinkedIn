@@ -4,6 +4,7 @@ import com.ahmedelzubair.simplifiedlinkedin.addresses.domain.Continent;
 import com.ahmedelzubair.simplifiedlinkedin.addresses.domain.dto.ContinentDTO;
 import com.ahmedelzubair.simplifiedlinkedin.addresses.domain.mapper.ContinentMapper;
 import com.ahmedelzubair.simplifiedlinkedin.addresses.repo.ContinentJpaRepo;
+import com.ahmedelzubair.simplifiedlinkedin.exception.EntityAlreadyExistsException;
 import com.ahmedelzubair.simplifiedlinkedin.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class ContinentServiceImpl implements ContinentService {
         Continent continent = continentMapper.mapToContinentEntity(continentDTO);
 
         if (continentJpaRepo.findByName(continent.getName()).isPresent()) {
-            throw new IllegalArgumentException("Continent with name " + continent.getName() + " already exists");
+            throw new EntityAlreadyExistsException("Continent with name " + continent.getName() + " already exists");
         }
         continentJpaRepo.save(continent);
         return continentMapper.mapToContinentDTO(continent);
@@ -67,22 +68,36 @@ public class ContinentServiceImpl implements ContinentService {
     }
 
     @Override
-    public Optional<ContinentDTO> findContinentById(Long continentId) {
+    public void deleteContinentById(Long id) {
+
+        Optional<Continent> continentOptional = continentJpaRepo.findById(id);
+
+        if (continentOptional.isEmpty()) {
+            throw new EntityNotFoundException("Continent with id " + id
+                    + " does not exist");
+        }
+
+        continentJpaRepo.deleteById(id);
+
+    }
+
+    @Override
+    public ContinentDTO findContinentById(Long continentId) {
         Optional<Continent> continentOptional = continentJpaRepo.findById(continentId);
         if (continentOptional.isEmpty()) {
             throw new EntityNotFoundException("Continent with id " + continentId
                     + " does not exist");
         }
-        return Optional.of(continentMapper.mapToContinentDTO(continentOptional.get()));
+        return continentMapper.mapToContinentDTO(continentOptional.get());
     }
 
     @Override
-    public Optional<ContinentDTO> findContinentByName(String continentName) {
+    public ContinentDTO findContinentByName(String continentName) {
         Optional<Continent> continentOptional = continentJpaRepo.findByName(continentName);
         if (continentOptional.isEmpty()) {
             throw new EntityNotFoundException("Continent with name " + continentName
                     + " does not exist");
         }
-        return Optional.of(continentMapper.mapToContinentDTO(continentOptional.get()));
+        return (continentMapper.mapToContinentDTO(continentOptional.get()));
     }
 }

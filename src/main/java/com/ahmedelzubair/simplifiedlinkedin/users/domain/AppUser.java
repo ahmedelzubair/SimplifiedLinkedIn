@@ -38,7 +38,7 @@ public class AppUser extends BaseEntity {
     private LocalDate dateOfBirth;
     @Enumerated(EnumType.STRING)
     private UserStatus status;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_address",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id"))

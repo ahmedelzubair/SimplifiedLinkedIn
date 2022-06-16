@@ -2,8 +2,6 @@ package com.ahmedelzubair.simplifiedlinkedin.addresses.service;
 
 import com.ahmedelzubair.simplifiedlinkedin.addresses.domain.dto.ContinentDTO;
 
-import java.util.Optional;
-
 public interface ContinentService {
 
     ContinentDTO createContinent(ContinentDTO continentDTO);
@@ -12,9 +10,11 @@ public interface ContinentService {
 
     void deleteContinent(ContinentDTO continentDTO);
 
-    Optional<ContinentDTO> findContinentById(Long continentId);
+    void deleteContinentById(Long id);
 
-    Optional<ContinentDTO> findContinentByName(String continentName);
+    ContinentDTO findContinentById(Long continentId);
+
+    ContinentDTO findContinentByName(String continentName);
 
 
 }
