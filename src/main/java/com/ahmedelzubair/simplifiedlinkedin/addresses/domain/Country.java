@@ -17,15 +17,10 @@ public class Country extends BaseEntity {
 
     private String name;
     private String code;
-    private String currency;
-    private String currencyCode;
+    private String iso3Code;
     private String phoneCode;
-    private String flagUrl;
-    private String language;
-    private String languageCode;
-    private Long status;
     @ManyToOne
-    @JoinColumn(name = "continent_id")
-    private Continent continentId;
-
+    @JoinColumn(name = "continent_code")
+    private Continent continent;
+    private String flagUrl;
 }

@@ -4,7 +4,7 @@ import com.ahmedelzubair.simplifiedlinkedin.addresses.service.AddressService;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController("/address")
+@RestController("api/v1/address")
 public class AddressController {
 
     private final AddressService addressService;

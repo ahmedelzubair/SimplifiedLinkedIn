@@ -9,7 +9,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 
-@RestController("/continent")
+@RestController("api/v1/address/continent")
 public class ContinentController {
 
     private final ContinentService continentService;
