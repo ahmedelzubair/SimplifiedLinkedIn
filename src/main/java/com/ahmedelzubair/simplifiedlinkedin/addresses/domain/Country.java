@@ -20,7 +20,7 @@ public class Country extends BaseEntity {
     private String iso3Code;
     private String phoneCode;
     @ManyToOne
-    @JoinColumn(name = "continent_code")
+    @JoinColumn(name = "continent_code", referencedColumnName = "code")
     private Continent continent;
     private String flagUrl;
 }
